@@ -360,7 +360,7 @@ class ProcessLidarCollections:
         return self.collections
 
 
-def fetch_lidar(gdf, geometry_method, write=False, out_las="demo_lidar.las"):
+def fetch_lidar(gdf, geometry_method, write=False, out_las="demo/demo_lidar.las"):
     """
     Fetches lidar data using an EPT URL from a GeoDataFrame.
 
@@ -407,6 +407,7 @@ def fetch_lidar(gdf, geometry_method, write=False, out_las="demo_lidar.las"):
                 "filename": out_las,
             }
             pipeline = [pipeline, write_las_pipeline]
+            print(f'LAS write output enabled. Saving file under demo/{out_las}')
         else:
             pipeline = [pipeline]
 
@@ -416,29 +417,3 @@ def fetch_lidar(gdf, geometry_method, write=False, out_las="demo_lidar.las"):
         metadata = pipeline.metadata
 
         return count, arrays, metadata, out_las
-
-
-
-
-
-
-
-# def gpstime_to_unixtime(gps_time):
-#     """
-#     Convert GPS time to Unix time.
-
-#     Args:
-#         gps_time (float): The GPS time in seconds.
-
-#     Returns:
-#         str: The Unix time converted from GPS time in 'YYYY-MM-DD HH:MM:SS' format.
-
-#     """
-#     offset = 315964800
-#     gps_time = float(gps_time)
-#     gps_time += 1e9  # Unadjusted GPS time
-#     unix_time = gps_time + offset - count_leaps(gps_time)
-#     datetimestr = datetime.datetime.fromtimestamp(unix_time).strftime('%Y-%m-%d %H:%M:%S')
-
-#     return datetimestr
-
