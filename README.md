@@ -6,4 +6,6 @@ Currently it uses US Interagency Elevation Inventory REST API services and NOAA'
 
 Use case is to develop programmatic lidar inventory and improve accessibility so it can support tools and models.
 
-To get started, see `lapis_demo.ipynb`
+To get started, see `lapis_demo.ipynb` (click below to demo it on binder)
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/lahm3d/lapis/HEAD)
